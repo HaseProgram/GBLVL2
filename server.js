@@ -4,14 +4,26 @@ const fs = require('fs');
 const server = http.createServer(function (req, res) {
   let body = null
 
+  const extToMimes = {
+    html: 'text/html',
+    css: 'text/css',
+    js: 'application/javascript',
+    png: 'image/png',
+    svg: 'image/svg+xml',
+    jpg: 'image/jpeg',
+  }
+
   try {
-    const isSvg = req.url.split('.')[1] === 'svg'
-    if (isSvg) {
-      res.writeHead(200, {'content-type': 'image/svg+xml'})
+    const extension = req.url.split('.')[1]
+    const mime = extToMimes[extension]
+
+    if (mime) {
+      res.setHeader('Content-Type', mime)
     }
 
     body = fs.readFileSync(`./public${req.url}`)
   } catch {
+    res.setHeader('Content-Type', extToMimes['html'])
     body = fs.readFileSync('./public/index.html', 'utf8')
   }
 
