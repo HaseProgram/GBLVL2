@@ -2,16 +2,18 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer(function (req, res) {
-  console.log(req.url)
-
   let body = null
-  if (req.url === '/css/styles.css') {
-    body = fs.readFileSync('./public/css/styles.css', 'utf8')
-  } else {
+
+  try {
+    const isSvg = req.url.split('.')[1] === 'svg'
+    if (isSvg) {
+      res.writeHead(200, {'content-type': 'image/svg+xml'})
+    }
+
+    body = fs.readFileSync(`./public${req.url}`)
+  } catch {
     body = fs.readFileSync('./public/index.html', 'utf8')
   }
-
-
 
   res.end(body)
 });
