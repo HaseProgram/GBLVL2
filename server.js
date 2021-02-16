@@ -5,13 +5,19 @@ const server = http.createServer(function (req, res) {
   console.log(req.url)
 
   let body = null
-  if (req.url === '/css/styles.css') {
-    body = fs.readFileSync('./public/css/styles.css', 'utf8')
-  } else {
-    body = fs.readFileSync('./public/index.html', 'utf8')
+  try {
+    // /img/user.svg
+    const ext = req.url.split('.')[1]
+    console.log(ext);
+    const isSvg = ext === 'svg';
+    if (isSvg) {
+      res.setHeader('Content-Type', 'image/svg+xml');
+    }
+
+    body = fs.readFileSync(`./public${req.url}`)
+  } catch (err) {
+    body = fs.readFileSync(`./public/index.html`)
   }
-
-
 
   res.end(body)
 });
