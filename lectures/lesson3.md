@@ -2,13 +2,13 @@
 
 Можно посмотреть пример в записи вебинара: [https://geekbrains.ru/lessons/117564](https://geekbrains.ru/lessons/66068)
 
-- [Что такое асинхронность?](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#асинхронность)
-- [EventLoop](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#eventloop)
-- [Учимся работать с асинхронными функциями](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#учимся-работать-с-асинхронными-функциями)
-- [Коллбэки](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#коллбэки)
-- [Промисы](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#промисы)
-- [Работа с сетью](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#работа-с-сетью)
-- [Response](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#response)
+- [Что такое асинхронность?](https://github.com/HaseProgram/GBLVL2/lectures/blob/main/lesson3.md#асинхронность)
+- [EventLoop](https://github.com/HaseProgram/GBLVL2/lectures/blob/main/lesson3.md#eventloop)
+- [Учимся работать с асинхронными функциями](https://github.com/HaseProgram/GBLVL2/lectures/blob/main/lesson3.md#учимся-работать-с-асинхронными-функциями)
+- [Коллбэки](https://github.com/HaseProgram/GBLVL2/lectures/blob/main/lesson3.md#коллбэки)
+- [Промисы](https://github.com/HaseProgram/GBLVL2/lectures/blob/main/lesson3.md#промисы)
+- [Работа с сетью](https://github.com/HaseProgram/GBLVL2/lectures/blob/main/lesson3.md#работа-с-сетью)
+- [Response](https://github.com/HaseProgram/GBLVL2/lectures/blob/main/lesson3.md#response)
 
 ## Асинхронность
 
@@ -72,7 +72,7 @@ main()
 Давайте рассмотрим, как эти вещи работают внутри.
 
 ## EventLoop
-<img alt="Упрощенная модель EventLoop" src="https://github.com/GBLVL2/lectures/blob/main/images/1.jpg" width="500" />
+<img alt="Упрощенная модель EventLoop" src="https://github.com/HaseProgram/GBLVL2/lectures/blob/main/images/1.jpg" width="500" />
 
 То, что вы видите на изрображении сверху – это упрощенная модель EventLoop в JS.
 На этой схеме можно показать, в какой последовательности вызываются функции. 
@@ -81,24 +81,24 @@ main()
 #### Функция main() в рассмотрении EventLoop:
 
 1) Сначала, вызов функции ``main()`` поместит ее в стэк.
-<img alt="Упрощенная модель EventLoop" src="https://github.com/GBLVL2/lectures/blob/main/images/2.jpg" width="500" />
+<img alt="Упрощенная модель EventLoop" src="https://github.com/HaseProgram/GBLVL2/lectures/blob/main/images/2.jpg" width="500" />
 
 2) Далее браузер поместит в стэк первое выражение функции ``main()`` – функцию ``setTimeout`` с коллбэком, который выведет в консоль ``Delayed``
-<img alt="Упрощенная модель EventLoop" src="https://github.com/GBLVL2/lectures/blob/main/images/3.jpg" width="500" />
+<img alt="Упрощенная модель EventLoop" src="https://github.com/HaseProgram/GBLVL2/lectures/blob/main/images/3.jpg" width="500" />
 
 3) Функция ``setTimeout`` использует апи браузера, чтобы задержать вызов коллбэка. На этом ее работа завершается, и она убирается из стэка. На ее место помещается следующее выражение – ``console.log(‘Main’)``.
-<img alt="Упрощенная модель EventLoop" src="https://github.com/GBLVL2/lectures/blob/main/images/4.jpg" width="500" />
+<img alt="Упрощенная модель EventLoop" src="https://github.com/HaseProgram/GBLVL2/lectures/blob/main/images/4.jpg" width="500" />
 
 4) Время, на которое должен был задержаться вызов коллбэка – прошло, так как оно было равно 0. Коллбэк помещается в очередь ``Message Queue``. 
 В то же время ``console.log(‘Main’)`` отработал и удаляется из стэка.
-<img alt="Упрощенная модель EventLoop" src="https://github.com/GBLVL2/lectures/blob/main/images/5.jpg" width="500" />
+<img alt="Упрощенная модель EventLoop" src="https://github.com/HaseProgram/GBLVL2/lectures/blob/main/images/5.jpg" width="500" />
 
 5) ``main()`` больше не содержит выражений, поэтому тоже удаляется из стэка.
-<img alt="Упрощенная модель EventLoop" src="https://github.com/GBLVL2/lectures/blob/main/images/6.jpg" width="500" />
+<img alt="Упрощенная модель EventLoop" src="https://github.com/HaseProgram/GBLVL2/lectures/blob/main/images/6.jpg" width="500" />
 
 6) Так как стэк пуст, браузер может посмотреть на ``Message Queue``, и если там есть выражения, то поместит их в стэк. Там находится наш коллбэк. Он и помещается в стэк. 
 Важно, что ``Message Queue`` начинает слушать ТОЛЬКО ЕСЛИ СТЭК ПУСТОЙ!
-<img alt="Упрощенная модель EventLoop" src="https://github.com/GBLVL2/lectures/blob/main/images/7.jpg" width="500" />
+<img alt="Упрощенная модель EventLoop" src="https://github.com/HaseProgram/GBLVL2/lectures/blob/main/images/7.jpg" width="500" />
 
 > Может возникнуть вопрос. А как так, мы же указали задержку в 0, но какие-то микросекунды все равно прошли? Так и есть. Время, которое указывается в качестве параметра в функции ``setTimeout``, является МИНИМАЛЬНЫМ, которое пройдет, прежде чем запустится коллбэк. Если у нас какие-то серьезные вычисления, то эта задержка может быть намного больше, вплоть до бесконечности (если у нас возник бесконечный цикл).
 
