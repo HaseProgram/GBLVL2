@@ -2,13 +2,13 @@
 
 Можно посмотреть пример в записи вебинара: [https://geekbrains.ru/lessons/117564](https://geekbrains.ru/lessons/66068)
 
-- [Что такое асинхронность?](https://github.com/GBLVL2/lectures/blob/main/lecture3.md#асинхронность)
-- [EventLoop](https://github.com/GBLVL2/lectures/blob/main/lecture3.md#eventloop)
-- [Учимся работать с асинхронными функциями](https://github.com/GBLVL2/lectures/blob/main/lecture3.md#учимся-работать-с-асинхронными-функциями)
-- [Коллбэки](https://github.com/GBLVL2/lectures/blob/main/lecture3.md#коллбэки)
-- [Промисы](https://github.com/GBLVL2/lectures/blob/main/lecture3.md#промисы)
-- [Работа с сетью](https://github.com/GBLVL2/lectures/blob/main/lecture3.md#работа-с-сетью)
-- [Response](https://github.com/GBLVL2/lectures/blob/main/lecture3.md#response)
+- [Что такое асинхронность?](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#асинхронность)
+- [EventLoop](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#eventloop)
+- [Учимся работать с асинхронными функциями](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#учимся-работать-с-асинхронными-функциями)
+- [Коллбэки](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#коллбэки)
+- [Промисы](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#промисы)
+- [Работа с сетью](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#работа-с-сетью)
+- [Response](https://github.com/GBLVL2/lectures/blob/main/lesson3.md#response)
 
 ## Асинхронность
 
