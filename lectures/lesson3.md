@@ -9,6 +9,7 @@
 - [Промисы](https://github.com/HaseProgram/GBLVL2/blob/main/lectures/lesson3.md#промисы)
 - [Работа с сетью](https://github.com/HaseProgram/GBLVL2/blob/main/lectures/lesson3.md#работа-с-сетью)
 - [Response](https://github.com/HaseProgram/GBLVL2/blob/main/lectures/lesson3.md#response)
+- [Полезные ссылки](https://github.com/HaseProgram/GBLVL2/blob/main/lectures/lesson3.md#полезные-ссылки)
 
 ## Асинхронность
 
@@ -433,3 +434,6 @@ constructor (root) {
 ```
 
 Теперь все заработает!
+
+## Полезные ссылки
+- [Поиграться с Event Loop online (+ посмотреть крутое видео)](http://latentflip.com/loupe/)
