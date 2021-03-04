@@ -1,3 +1,9 @@
+'use strict'
+
+import Button from './button'
+
+import './styles.css'
+
 class List {
   _items = []
   preloading = false
@@ -22,7 +28,7 @@ class List {
 
   fetchGoods () {
     this.preloading = true
-    const url = `http://localhost:4000/lesson4/database/items${this._page}.json`;
+    const url = `/database/items${this._page}.json`;
     return fetch(url)
       .then(res => {
         return res.json()
@@ -37,7 +43,7 @@ class List {
       })
       .then(this.render.bind(this))
       .catch((err) => {
-        alert('No more pages')
+        alert(`No more pages, ${err}`)
       });
   }
 

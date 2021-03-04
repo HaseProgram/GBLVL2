@@ -1,0 +1,7 @@
+{
+  "data": [
+    { "name": "Shirt", "price": 150, "img": "/img/gb.png" },
+    { "name": "Socks", "price": 250, "img": "/img/gb.png" },
+    { "name": "Jacket", "price": 750, "img": "/img/gb.png" }
+  ]
+}
