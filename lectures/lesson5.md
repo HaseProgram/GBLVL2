@@ -176,7 +176,7 @@ module: {
 module: {
   rules: [
     {
-      test: /\.css$/,
+      test: /\.js$/,
       use: [
         { loader: 'babel-loader' },
       ]
