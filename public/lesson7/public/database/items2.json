@@ -1,0 +1,5 @@
+{
+  "4": { "id": 4, "name": "Shirt2", "price": 1502, "img": "/img/gb2.png" },
+  "5": { "id": 5, "name": "Socks2", "price": 2502, "img": "/img/gb2.png" },
+  "6": { "id": 6, "name": "Jacket2", "price": 7502, "img": "/img/gb2.png" }
+}
