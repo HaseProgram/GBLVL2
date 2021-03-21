@@ -50,7 +50,7 @@ app.post('/itemslist', (req, res) => {
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     console.log(req.body);
-    const list = JSON.parse(data || {});
+    const list = JSON.parse(data || '{}');
     const amountOfData = Object.keys(list).length;
     const newID = offset + amountOfData + 1;
     const newItrem = req.body;
